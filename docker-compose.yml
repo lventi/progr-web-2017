@@ -19,4 +19,4 @@ services:
         context: .
         dockerfile: Dockerfile-postgresql
       ports:
-        - "5050:5432"
+        - "5433:5432"
