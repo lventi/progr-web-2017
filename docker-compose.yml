@@ -1,0 +1,22 @@
+version: '2.0'
+
+services:
+  # Server application
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    ports:
+      - "3022:22"
+      - "4444:4444"
+      - "5555:5555"
+      - "8080:8080"
+    volumes:
+      - ./restful_2017_1491622:/root/
+
+  postgresql:
+      build:
+        context: .
+        dockerfile: Dockerfile-postgresql
+      ports:
+        - "5050:5432"
