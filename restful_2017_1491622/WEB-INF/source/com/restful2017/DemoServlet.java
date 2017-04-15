@@ -3,6 +3,7 @@ package com.restful2017;
 import javax.servlet.http.*;
 import javax.servlet.*;
 import java.io.*;
+import java.sql.*;
 
 public class DemoServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req,HttpServletResponse res)
@@ -13,7 +14,7 @@ public class DemoServlet extends HttpServlet{
 
 //writing html in the stream
 		pw.println("<html><body>");
-		pw.println("Welcome to servlet");
+		pw.println("Welcome to demo servlet");
 		pw.println("</body></html>");
 
 		pw.close();//closing the stream

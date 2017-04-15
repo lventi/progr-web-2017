@@ -1,12 +1,14 @@
-OPTS = -cp ../lib/javax.servlet-api-3.0.1.jar -Xlint:deprecation
+OPTS = -d ../classes/ -cp ../lib/javax.servlet-api-3.0.1.jar:../lib/postgresql-42.0.0.jre6.jar -Xlint:deprecation
 JAVAC ?= javac
-JAVA_FILES := $(wildcard ./*.java)
-CLASS_FILES := $(notdir $(JAVA_FILES:.java=.class))
+JAVA_FILES := $(shell find . -name '*.java')
+CLASS_FILES := $(JAVA_FILES:.java=.class)
 
 all: $(CLASS_FILES)
 
+copy: $(CLASS_FILES)
+
 clean:
-	rm -f $(CLASS_FILES)
+	rm -rf ../classes/*
 
 %.class: %.java
 	$(JAVAC) $(OPTS) $<
