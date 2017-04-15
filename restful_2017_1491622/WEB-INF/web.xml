@@ -1,0 +1,72 @@
+<!DOCTYPE web-app PUBLIC
+"-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+"http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+<web-app>
+  <!-- General description of your Web application -->
+  <display-name>
+    Teledidattica, WebAppl 1
+  </display-name>
+  <description>
+    Programmazione per il Web in Teledidattica, prima web application di esempio: primi esempi di servlet
+  </description>
+  <!-- Servlet definitions -->
+  <servlet>
+    <servlet-name>index_html</servlet-name>
+    <description>
+      Altro modo di invocare index.html
+    </description>
+    <jsp-file>/index.html</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>metodi</servlet-name>
+    <description>
+      Illustra le differenze tra i vari metodi (GET, POST, PUT, ...), risposta fissa; vedere html_only/servlet1.html
+    </description>
+    <servlet-class>servlet1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>non_fisso_init_destroy</servlet-name>
+    <description>
+      Risposta non fissa, uso di init e destroy
+    </description>
+    <servlet-class>servlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>gestione_form</servlet-name>
+    <description>
+      Una servlet che gestisce le richieste di un form
+    </description>
+    <servlet-class>servlet3</servlet-class>
+  </servlet>
+  
+  <!-- Servlet mappings -->
+  <servlet-mapping>
+    <servlet-name>index_html</servlet-name>
+    <url-pattern>/principale</url-pattern> 
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index_html</servlet-name>
+    <url-pattern>/index2.html</url-pattern> <!-- il file index2.html non e' piu' invocabile, in quanto viene "sovrascritto" da questa regola -->
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index_html</servlet-name>
+    <url-pattern>/nonesiste2/alias_html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index_html</servlet-name>
+    <url-pattern>/html_only/servlet2_over.html</url-pattern> <!-- come sopra per index2.html -->
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>metodi</servlet-name>
+    <url-pattern>/metodi_semplice</url-pattern>
+    <url-pattern>/nonesiste/alias_metodi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>non_fisso_init_destroy</servlet-name>
+    <url-pattern>/servlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>gestione_form</servlet-name>
+    <url-pattern>/gestisci_form</url-pattern>
+  </servlet-mapping>
+</web-app>

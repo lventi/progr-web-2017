@@ -11,8 +11,8 @@ services:
       - "4444:4444"
       - "5555:5555"
       - "8080:8080"
-    volumes:
-      - ./restful_2017_1491622:/root/
+    #volumes:
+      #- ./restful_2017_1491622:/usr/local/tomcat/webapps/
 
   postgresql:
       build:

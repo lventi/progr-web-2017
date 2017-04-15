@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Come invocare una servlet</title>
+  </head>
+  <body>
+    <form action = "../nonesiste/alias_metodi" method = "get" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo GET (path relativo e corretto)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    <br/>
+    <a href="http://localhost:8080/teledidattica_web_appl_1/metodi_semplice">... oppure cliccare qui!</a> (path assoluto con server, usando il primo url-pattern; dato che il nome finale non ha estensione, occorre mettere anche il protocollo esplicito)
+    <br/>
+    <a href="http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi">... oppure cliccare qui!</a> (path assoluto con server, qui e di seguito si usa il secondo url-pattern)
+    <br/>
+    <a href="/teledidattica_web_appl_1/nonesiste/alias_metodi">... oppure cliccare qui!</a> (path assoluto senza server)
+    <br/>
+    <a href="/nonesiste/alias_metodi">... oppure cliccare qui!</a> (path assoluto, ma sbagliato)
+    <br/>
+    <a href="nonesiste/alias_metodi">... oppure cliccare qui!</a> (path relativo, ma sbagliato)
+    <br/>
+    <a href="../html_only/../nonesiste/alias_metodi">... oppure cliccare qui!</a> (path relativo e corretto)
+    <br/>
+    <a href="../altro_nonesiste/../nonesiste/alias_metodi">... oppure cliccare qui!</a> (path relativo e corretto)
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "post" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo POST (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    <b>I restanti metodi non sono supportati da HTML, ma solo da HTTP (vengono trasformati in GET dal client browser)</b>:
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "head" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo HEAD (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XHEAD -D - http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code><br/>Notare che curl termina per timeout, perch&eacute; si aspetta anche il corpo che per&ograve; non arriva. Confrontare con l'output di curl dove il metodo &egrave; GET.
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "trace" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo TRACE (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XTRACE -D - http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code><br/>Notare la differenza con HEAD: nel caso di HEAD, curl resta ad aspettare anche il corpo (a meno che non venga data l'opzione <code>-I</code>); nel caso di TRACE, c'&egrave; solo l'intestazione. Infatti, nel caso di HEAD, viene anche chiamato GET (per determinare la lunghezza della risposta...), mentre nel caso di TRACE la lunghezza (del corpo) della risposta &egrave; 0. Infine, TRACE risponde con 405 ("method not allowed").<br/><br/>
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "options" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo OPTIONS (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XOPTIONS -D - http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code><br/>Come TRACE, ma risponde con 200 ("OK").<br/><br/>
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "put" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo PUT (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XPUT http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code>
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "delete" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo DELETE (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XDELETE http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code><br/><br/>
+    <b>L'ultimo metodo non &egrave; supportato n&eacute; da HTML, n&eacute; da HTTP (viene comunque trasformato in GET dal client browser):</b>
+    <form action = "/teledidattica_web_appl_1/nonesiste/alias_metodi" method = "other" >
+      <p><label>Cliccare qui per invocare servlet1 con metodo OTHER (path assoluto senza server)
+      <input type = "submit" value = "Vai a servlet1 come descritto" />
+      </label></p>
+    </form>
+    Per farlo davvero: <code>curl -XOTHER http://localhost:8080/teledidattica_web_appl_1/nonesiste/alias_metodi</code>
+  </body>
+</html>
