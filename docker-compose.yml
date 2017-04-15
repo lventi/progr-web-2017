@@ -20,3 +20,4 @@ services:
         dockerfile: Dockerfile-postgresql
       ports:
         - "5433:5432"
+

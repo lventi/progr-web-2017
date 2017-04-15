@@ -1,6 +1,9 @@
+package com.restful2017;
+
 import javax.servlet.http.*;
 import javax.servlet.*;
 import java.io.*;
+
 public class DemoServlet extends HttpServlet{
 	public void doGet(HttpServletRequest req,HttpServletResponse res)
 			throws ServletException,IOException

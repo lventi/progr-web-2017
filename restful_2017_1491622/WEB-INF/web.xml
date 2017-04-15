@@ -1,27 +1,27 @@
 <!DOCTYPE web-app PUBLIC
-"-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
-"http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+        "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 <web-app>
-  <!-- General description of your Web application -->
-  <display-name>
-    Restful 2017
-  </display-name>
-  <description>
-    Progetto di Programmazione per il web, A.A. 2016/2017
-  </description>
-  <!-- Servlet definitions -->
-  <servlet>
-    <servlet-name>Demo servlet</servlet-name>
+    <!-- General description of your Web application -->
+    <display-name>
+        Restful 2017
+    </display-name>
     <description>
-      Demo servlet
+        Progetto di Programmazione per il web, A.A. 2016/2017
     </description>
-    <jsp-file>../public/demoservlet.html</jsp-file>
-  </servlet>
-  
-  <!-- Servlet mappings -->
-  <servlet-mapping>
-    <servlet-name>Demo servlet</servlet-name>
-    <url-pattern>/demo</url-pattern>
-  </servlet-mapping>
+    <!-- Servlet definitions -->
+    <servlet>
+        <servlet-name>Demo servlet</servlet-name>
+        <description>
+            Demo servlet
+        </description>
+        <servlet-class>com.restful2017.DemoServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>Demo servlet</servlet-name>
+        <url-pattern>/demo</url-pattern>
+    </servlet-mapping>
 
 </web-app>
