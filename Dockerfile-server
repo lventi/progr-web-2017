@@ -73,10 +73,14 @@ RUN set -x \
 	&& rm -rf "$nativeBuildDir" \
 	&& rm bin/tomcat-native.tar.gz
 
-#RUN cat $CATALINA_HOME/conf/tomcat-users.xml
+#add tomcat custom configuration files
 ADD tomcat/tomcat-users.xml $CATALINA_HOME/conf/
-#RUN cat $CATALINA_HOME/conf/tomcat-users.xml
 ADD tomcat/context.xml $CATALINA_HOME/conf/
+ADD tomcat/context.xml $CATALINA_HOME/webapps/manager/META-INF
+ADD tomcat/context.xml $CATALINA_HOME/webapps/host-manager/META-INF
+
+#deploy restful webapp
+ADD restful_2017_1491622/ $CATALINA_HOME/webapps/restful_2017_1491622
 
 # verify Tomcat Native is working properly
 RUN set -e \
