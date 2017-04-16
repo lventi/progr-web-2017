@@ -14,6 +14,7 @@
 <%@page import="com.restful2017.servlet.DemoServlet" %>
 <%@page import="com.restful2017.db.PostgreSql" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 
 <% String DBName = "restful_example";%>
 <% String DBSchema = "restful_example_schema";%>
@@ -51,25 +52,22 @@
     <table class="striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
+            <th>Tables</th>
         </tr>
         </thead>
 
         <tbody>
-        <% List tableList = postgreSql.getTableList();%>
-        <%=tableList%>
-        <c:forEach items="${tableList}" var="table">
-            <c:out value="${table}"/>
-            <c:forEach items="${table}" var="value">
-                <tr>
-                    <td>${value.key}</td>
-                    <td>${value.value}</td>
-                    <td>$3.76</td>
-                </tr>
-            </c:forEach>
-        </c:forEach>
+        <% List<Map<String, Object>> tableList = postgreSql.getTableList();%>
+        <%for (int i = 0; i < tableList.size(); i++) {%>
+        <tr>
+            <td>
+                <p>
+                    <input type="checkbox" id="table-select-checkbox-<%=i%>"/>
+                    <label for="table-select-checkbox-<%=i%>"><%= tableList.get(i).get("table_name") %></label>
+                </p>
+            </td>
+        </tr>
+        <%}%>
         </tbody>
     </table>
 </div>
