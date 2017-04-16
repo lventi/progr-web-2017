@@ -21,6 +21,13 @@ public class PostgreSql {
         this.DBPassword = DBPassword;
     }
 
+    public List<Map<String, Object>> getTableList(){
+
+        String query = "select table_name from information_schema.tables where table_schema='"+this.DBSchema+"';";
+
+        return executeStatementSelect(query);
+    }
+
     private Connection getConnection()
     {
         Connection conn = null;
