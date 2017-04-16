@@ -1,3 +1,11 @@
 #index-brand-logo.brand-logo {
-    width: 50px;
+    height: 100%;
+}
+
+#nav-bar {
+    background-color: #6e0c1b;
+}
+
+.header-title {
+    font-size: 2vw;
 }

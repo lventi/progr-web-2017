@@ -60,3 +60,9 @@ grant update on restful_example_schema.autore_id_seq to restful_example_user;
 grant select on restful_example_schema.autore_libro_id_seq to restful_example_user;
 grant usage on restful_example_schema.autore_libro_id_seq to restful_example_user;
 grant update on restful_example_schema.autore_libro_id_seq to restful_example_user;
+
+INSERT INTO restful_example_schema.autore (nome, cognome, indirizzo, telefono, email, userid, password)
+values ('mario', 'marini', 'vie delle vie', '+393397685745', 'mmarini@gmail.com','m_marini', 'password');
+
+INSERT INTO restful_example_schema.autore (nome, cognome, indirizzo, telefono, email, userid, password)
+values ('Giovanni', 'Petretta', 'vie Roma', '+393397452457', 'gpetretta@gmail.com','g_petretta', 'password');

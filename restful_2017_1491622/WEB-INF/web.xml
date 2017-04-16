@@ -15,7 +15,7 @@
         <description>
             Demo servlet
         </description>
-        <servlet-class>com.restful2017.DemoServlet</servlet-class>
+        <servlet-class>com.restful2017.servlet.DemoServlet</servlet-class>
     </servlet>
 
     <!-- Servlet mappings -->
