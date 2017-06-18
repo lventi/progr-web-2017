@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * 
- * Set of services provided for dashDb interaction
+ * Set of services provided for db interaction
  *
  */
 public interface DBInterface {
